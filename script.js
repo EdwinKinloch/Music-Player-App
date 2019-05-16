@@ -20,3 +20,17 @@ const createSongList = () => {
 }
 
 document.getElementById('songList').appendChild(createSongList());
+
+songList.onclick = (e) => {
+    //console.log(e);
+    const clickedItem = e.target;
+    const source = document.getElementById('source');
+    source.src = 'songs/' + clickedItem.innerText;
+    // console.log(clickedItem.innerText);
+
+    document.getElementById('currentlyPlayingSong').innerText = "Currently Playing: "
+    document.getElementById('currentSong').innerText = clickedItem.innerText;
+
+    player.load();
+    player.play();
+}
